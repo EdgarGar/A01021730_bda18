@@ -63,3 +63,5 @@ VALUES (650, 'advanced ruby', 3, 400.00)
 --Borrado del curso 600
 
 DELETE FROM class FOR portion OF business_time FROM 'date' to 'date' WHERE course_number = 600
+
+--
