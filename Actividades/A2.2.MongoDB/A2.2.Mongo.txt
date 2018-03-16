@@ -1,0 +1,16 @@
+use universidad
+db.createCollection("cursos")
+
+db.cursos.insert({titulo:"Graficas Computacionales"})
+
+db.cursos.update({titulo:"Graficas Computacionales""},{$set:{profesor:"X"}})
+
+db.cursos.update({titulo:"Graficas Computacionales""},{$set:{profesor: {nombre: "Octavio",nomina:"L01021738",direccion:"X",genero:"Masculino"}}})
+
+db.cursos.update({titulo:"Graficas Computacionales""},{$set:{año:2018}})
+
+db.cursos.update({titulo:"Graficas Computacionales""},{$set:{evaluaciones:{teoricas:75,practicas:200}}})
+
+db.cursos.update({titulo:"Graficas Computacionales""},{$set:{alumnos:[]}})
+
+db.cursos.update({titulo:"Graficas Computacionales""},{$push:{alumnos:{nombre:"Edgar",matricula:"A01021730",direccion: "Algun lado",genero: "Masculino",evaluacionCurso: 100, evaluacionProfesor: 100, comentarios: "X",calificaciones:[80,85,98,100],final: 85}}})
