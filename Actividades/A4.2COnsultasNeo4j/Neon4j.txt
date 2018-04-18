@@ -1,0 +1,20 @@
+Respuesta 1
+match (p:Person)-[r:ACTED_IN]->() return p
+
+Respuesta 2
+match (p:Person)-[r:PRODUCED]->() return p
+
+Respuesta 3
+match (p:Person)-[r:DIRECTED]->() return p
+
+Respuesta 4
+match (m:Movie) return m, count(m)
+
+Respuesta 5
+match (p:Person)-[r:WROTE]->() return p,count(r) order by count(r) desc
+
+Respuesta 6
+MATCH p=()-[r:REVIEWED]->(m:Movie) RETURN m, avg(r.rating) AS rating order by rating desc limit 5
+
+Respuesta 7
+match t=(p:Person)-[r1:ACTED_IN]->(:Movie)<-[r2:PRODUCED]-(p) return p

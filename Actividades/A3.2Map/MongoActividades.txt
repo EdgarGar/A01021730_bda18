@@ -1,0 +1,83 @@
+#creado de colleccion
+db.createCollection("clientes")
+
+#insertado de 10 personas
+db.clientes.insert([{name:"Peter", numProds:54},
+{name:"Peter", numProds:12},
+{name:"Peter", numProds:14},
+{name:"Juan", numProds:45},
+{name:"Juan", numProds:44},
+{name:"Juan", numProds:34},
+{name:"Omar", numProds:12},
+{name:"peter", numProds:32},
+{name:"Omar", numProds:37},
+{name:"Omar", numProds:98}])
+
+#Emit genera un arreglo de todos los valores
+> var map = function(){
+... emit(name, numProds);
+... };
+
+var map1 = function(){emit(this.name, this.numProds);};
+var reduce1 = function(name, values){ var n = Array.sum(values); return n;}
+
+db.clientes.mapReduce(map1, reduce1, {out:"res"})
+{
+"result" : "res",
+"timeMillis" : 114,
+"counts" : {
+  "input" : 11,
+  "emit" : 11,
+  "reduce" : 3,
+  "output" : 4
+},
+"ok" : 1
+}
+
+> db.res.find()
+{ "_id" : "Juan", "value" : 123 }
+{ "_id" : "Omar", "value" : 147 }
+{ "_id" : "Peter", "value" : 134 }
+{ "_id" : "peter", "value" : 32 }
+--------------------------------------------------
+
+Nueva colleccion
+
+db.createCollection("clientes2")
+
+db.clientes2.insert([{name:"Peter", numProds:54, details:[{prod:"prod1", price:200}, {prod:"prod2", price:200}]},
+{name:"Peter", numProds:12, details:[{prod:"prod1", price:200}, {prod:"prod1", price:200}]},
+{name:"Peter", numProds:14, details:[{prod:"prod1", price:200}, {prod:"prod2", price:200}]},
+{name:"Juan", numProds:45, details:[{prod:"prod4", price:200}, {prod:"prod4", price:200}]},
+{name:"Juan", numProds:44, details:[{prod:"prod5", price:200}, {prod:"prod5", price:200}]},
+{name:"Juan", numProds:34, details:[{prod:"prod1", price:200}, {prod:"prod1", price:200}]},
+{name:"Omar", numProds:12,details:[{prod:"prod1", price:200}, {prod:"prod12", price:200}]},
+{name:"Peter", numProds:32,details:[{prod:"prod1", price:200}, {prod:"prod3", price:200}]},
+{name:"Omar", numProds:37, details:[{prod:"prod2", price:200}, {prod:"prod5", price:200}]},
+{name:"Omar", numProds:98, details:[{prod:"prod3", price:200}, {prod:"prod2", price:200}]}])
+
+var mapCosts = function(){
+  this.details.forEach((value)=>{ emit(value.prod, value.price)})
+};
+
+var getCosts = function(prod, price){
+  return Array.sum(price)
+};
+
+
+db.clientes2.mapReduce(mapCosts,
+                      getCosts,
+                      {
+                        out:"res",
+                        query:{"name":"Peter"},
+                        sort:{"name":1},
+                        limit: 1
+                      })
+db.clientes2.mapReduce(mapCosts,
+                      getCosts,
+                      {
+                      out:"res",
+})
+
+
+---------------------------------------------------------------------------------------------------------

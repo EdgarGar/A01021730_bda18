@@ -1,0 +1,131 @@
+1.	Cuántos restaurantes hay por ZipCode
+2.	¿Cuántos grades hay por usuario?
+3.	Cuál es el total de scores por usuario
+4.	Cuántos restaurantes obtuvieron el grade A, Grade B y Grade C
+5.	Agrupa los restaurantes por “cuisine” y cuenta cuántos restaurantes hay por cada categoría
+6.	Cuáles son los 10 restaurantes más cercanos a:
+Restaurant_id: 40360045
+
+//1.	Cuántos restaurantes hay por ZipCode
+db.restaurants.group({key:
+  {'address.zipcode':1}, reduce: function( curr, result )
+  { result.total += 1;}, initial: { total : 0 }})
+//Algunos resultados de la consulta
+{
+		"address.zipcode" : "11225",
+		"total" : 112
+	},
+	{
+		"address.zipcode" : "11224",
+		"total" : 72
+	},
+	{
+		"address.zipcode" : "10019",
+		"total" : 675
+	},
+	{
+		"address.zipcode" : "11374",
+		"total" : 88
+	},
+	{
+		"address.zipcode" : "10314",
+		"total" : 189
+	},
+	{
+		"address.zipcode" : "11369",
+		"total" : 99
+	},
+	{
+		"address.zipcode" : "11234",
+		"total" : 157
+	},
+	{
+		"address.zipcode" : "10462",
+		"total" : 150
+	},
+	{
+		"address.zipcode" : "11214",
+		"total" : 182
+	},
+	{
+		"address.zipcode" : "10460",
+		"total" : 68
+	},
+	{
+		"address.zipcode" : "11208",
+		"total" : 111
+	},
+
+//2.	¿Cuántos grades hay por usuario?
+db.restaurants.aggregate({$project:
+  {name:"$name",count:
+  {$size:"$grades"}}});
+
+//Estos son algunos de los resultados de los restaurantes, faltan mas
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbb8"), "name" : "Harriet'S Kitchen", "count" : 6 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbb9"), "name" : "Bully'S Deli", "count" : 4 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbba"), "name" : "P & S Deli Grocery", "count" : 4 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbbb"), "name" : "Sal'S Deli", "count" : 4 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbbc"), "name" : "Angelika Film Center", "count" : 4 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbbd"), "name" : "White Castle", "count" : 4 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbbe"), "name" : "Ho Mei Restaurant", "count" : 8 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbbf"), "name" : "The Country Cafe", "count" : 4 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc0"), "name" : "Glorious Food", "count" : 5 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc1"), "name" : "Shashemene Int'L Restaura", "count" : 4 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc2"), "name" : "Carvel Ice Cream", "count" : 5 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc3"), "name" : "Downtown Deli", "count" : 6 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc4"), "name" : "Mejlander & Mulgannon", "count" : 4 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc5"), "name" : "Happy Garden", "count" : 3 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc6"), "name" : "Cafe Metro", "count" : 5 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc7"), "name" : "Dunkin' Donuts", "count" : 4 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc8"), "name" : "Olive'S", "count" : 5 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbc9"), "name" : "Tony'S Deli", "count" : 6 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbca"), "name" : "Lexler Deli", "count" : 5 }
+{ "_id" : ObjectId("5ab2c7875f2005ca7e9cdbcb"), "name" : "Snack Time Grill", "count" : 6 }
+
+//3.	Cuál es el total de scores por usuario
+
+db.restaurants.aggregate(
+  [{$unwind: "$grades"},
+  {"$group":
+  {"_id": "$name","total":
+  {"$sum": "$grades.score"}}},
+  {$project: {total:1}}]);
+
+//4.	Cuántos restaurantes obtuvieron el grade A, Grade B y Grade C
+db.restaurants.mapReduce(
+    function() {
+        var gradeA = 0;
+        var gradeB = 0;
+        var gradeC = 0;
+        this.grades.forEach((value)=>{
+        if(value.grade === "A"){
+          gradeA += 1;
+        }else if(value.grade === "B"){
+          gradeB += 1;
+        }else if(value.grade === "C"){
+          gradeC += 1;
+        }
+      });
+      emit("A", gradeA);
+      emit("B", gradeB);
+      emit("C", gradeC);
+    },
+    function(name, count) {
+      return Array.sum(count);
+    },
+    {out:"res"}
+)
+
+//5.	Agrupa los restaurantes por “cuisine” y cuenta cuántos restaurantes hay por cada categoría
+db.restaurants.mapReduce(
+    function(){
+        emit(this.cuisine, 1)
+    },
+    function(name, count){
+        return Array.sum(count);
+    },
+    {out:"res"}
+);
+
+//6.	Cuáles son los 10 restaurantes más cercanos a:

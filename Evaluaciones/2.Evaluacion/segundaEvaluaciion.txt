@@ -1,0 +1,78 @@
+// Utiliza la base de datos GRADES.JSON para contestar las siguientes preguntas:
+// 1¿Cuál es el total de alumnos inscritos?
+// 2¿Cuántos cursos se han impartido?
+// 3Encuentra, para cada alumno, su promedio obtenido en cada una de las clases en las que fue inscrito (promedia exámenes, quizes, tareas y todas las actividades realizadas que contenga un grade)
+// 4¿Cuál fue la materia que tiene la calificación más baja (muestra el id de la materia, el id del alumno y la calificación)?
+// 5¿Cuál es la materia en la que se han dejado más tareas?
+// 6¿Qué alumno se inscribió en más cursos?
+// 7¿Cuál fue el curso que tuvo más reprobados?
+
+//1¿Cuál es el total de alumnos inscritos?
+db.grades.aggregate(
+  [
+    {
+      $count: "Alumonos"
+    }
+  ]
+)
+//2¿Cuántos cursos se han impartido? 31
+db.grades.group({key:
+  {'class_id':1}, reduce: function( curr, result )
+  { result.total += 1;}, initial: { total : 0 }})
+
+
+// 3Encuentra, para cada alumno, su promedio obtenido en cada una de las clases en las que
+// fue inscrito (promedia exámenes, quizes, tareas y todas las actividades realizadas que contenga un grade)
+db.grades.mapReduce(scoreMap,scoreQuantity,{ out:"res"}).find()
+var scoreMap = function(){
+        this.scores.forEach((value)=>{
+          emit(this.student_id, value.score)});
+    };
+var scoreQuantity = function(name,score){
+  return Array.sum(score)/score.length;
+};
+
+
+// 4¿Cuál fue la materia que tiene la calificación más baja (muestra el id de la materia, el id del alumno y la calificación)?
+//alumno 12 en la clase 11, 0.0456
+
+db.grades.group(
+   {
+     keyf: function(doc) {
+               return { score: doc.ord_dt.getDay() };
+           },
+    reduce: function( curr, result ) {
+                result.total += curr.item.qty;
+                result.count++;
+            },
+    initial: { total : 0, count: 0 },
+    finalize: function(result) {
+                  result.avg = Math.round(result.total / result.count);
+              }
+   }
+)
+
+// 5¿Cuantas tareas fueron entregadas por materia?
+db.grades.mapReduce(
+    function(){
+        emit(this.homework, 1)
+    },
+    function(name, count){
+        return Array.sum(count);
+    },
+    {out:"res"}
+);
+
+// 6¿Qué alumno se inscribió en más cursos?
+//4 alumnos
+db.grades.group(
+  {
+
+  }
+)
+
+
+
+// 7¿Cuál fue el curso que tuvo más reprobados?
+
+db.grades.
