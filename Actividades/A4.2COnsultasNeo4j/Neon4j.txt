@@ -1,4 +1,4 @@
-Respuesta 1
+ Respuesta 1
 match (p:Person)-[r:ACTED_IN]->() return p
 
 Respuesta 2
