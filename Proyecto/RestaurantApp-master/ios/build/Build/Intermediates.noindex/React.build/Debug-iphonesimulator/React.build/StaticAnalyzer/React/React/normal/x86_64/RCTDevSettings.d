@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Modules/RCTDevSettings.mm \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Modules/RCTDevSettings.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/biller/GitHub/RestaurantApp/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
+  /Users/biller/GitHub/RestaurantApp/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Modules/RCTJSCSamplingProfiler.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/DevSupport/RCTPackagerClient.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/biller/GitHub/RestaurantApp/node_modules/react-native/React/Inspector/RCTInspectorPackagerConnection.h

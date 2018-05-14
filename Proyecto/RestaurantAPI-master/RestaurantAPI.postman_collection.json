@@ -1,0 +1,1126 @@
+{
+	"info": {
+		"_postman_id": "0007cfd6-8704-47aa-9ca3-643b0f40d68e",
+		"name": "RestaurantAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"pedro\",\n\t\"password\":\"lola\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"Pedroles\",\n\t\"password\":\"lola\",\n\t\"email\":\"pedrol@mail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/isLoggedIn",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicGVkcm8iLCJpZCI6MzUyLCJpYXQiOjE1MjUxMzI3MDl9.UiKeKsBWfWc0x6PVHRE50ytVmDGwBAajK4oMuxvkAyc"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/isLoggedIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"isLoggedIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://104.236.192.53/restaurantapi/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"Henryk\",\n\t\"password\":\"1234\"\n}"
+				},
+				"url": {
+					"raw": "http://104.236.192.53/restaurantapi/login",
+					"protocol": "http",
+					"host": [
+						"104",
+						"236",
+						"192",
+						"53"
+					],
+					"path": [
+						"restaurantapi",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://104.236.192.53/restaurantapi/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Henryk\",\n    \"password\": \"1234\",\n    \"email\":\"henry@mail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://104.236.192.53/restaurantapi/register",
+					"protocol": "http",
+					"host": [
+						"104",
+						"236",
+						"192",
+						"53"
+					],
+					"path": [
+						"restaurantapi",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://104.236.192.53/restaurantapi/isLoggedIn",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWTServer}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://104.236.192.53/restaurantapi/isLoggedIn",
+					"protocol": "http",
+					"host": [
+						"104",
+						"236",
+						"192",
+						"53"
+					],
+					"path": [
+						"restaurantapi",
+						"isLoggedIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://104.236.192.53/restaurantapi/materias-primas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWTServer}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://104.236.192.53/restaurantapi/materias-primas",
+					"protocol": "http",
+					"host": [
+						"104",
+						"236",
+						"192",
+						"53"
+					],
+					"path": [
+						"restaurantapi",
+						"materias-primas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://104.236.192.53/restaurantapi/materias-primas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWTServer}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Crema\",\n\t\"cost\":\"5\",\n\t\"category\":\"lacteos\"\n}"
+				},
+				"url": {
+					"raw": "http://104.236.192.53/restaurantapi/materias-primas",
+					"protocol": "http",
+					"host": [
+						"104",
+						"236",
+						"192",
+						"53"
+					],
+					"path": [
+						"restaurantapi",
+						"materias-primas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas/362",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas/362",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas",
+						"362"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Crema\",\n\t\"cost\":\"5\",\n\t\"category\":\"lacteos\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas/358",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cost\":\"15\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas/358",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas",
+						"358"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas/355",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas/356",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas",
+						"356"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas/hay/363",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas/hay/363",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas",
+						"hay",
+						"363"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas/hay",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":5,\n\t\"expiration\":\"25-07-2018\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas/hay",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas",
+						"hay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas/hay/357",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":5,\n\t\"expiration\":\"25-07-2018\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas/hay/363",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas",
+						"hay",
+						"363"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas/hay/520",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas/hay/520",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas",
+						"hay",
+						"520"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/materias-primas/hay/520",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/materias-primas/hay/520",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"materias-primas",
+						"hay",
+						"520"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Fresas con crema\",\n\t\"cost\":0,\n\t\"quantity\":1000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas/361",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Fresas con crema\",\n\t\"cost\":0,\n\t\"quantity\":1000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas/361",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas",
+						"361"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Fresas con crema\",\n\t\"cost\":0,\n\t\"quantity\":1000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas/361",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Fresas con crema\",\n\t\"cost\":0,\n\t\"quantity\":1000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas/361",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas/361",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas",
+						"361"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas/necesita/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":20,\n\t\"materiaPrimaId\":362\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas/necesita",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas",
+						"necesita"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas/necesita/361",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":20,\n\t\"materiaPrimaId\":362\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas/necesita/361",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas",
+						"necesita",
+						"361"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas/necesita/361",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":20,\n\t\"materiaPrimaId\":362\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas/necesita/361",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas",
+						"necesita",
+						"361"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas/necesita/512",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":20\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas/necesita/512",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas",
+						"necesita",
+						"512"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/recetas/necesita/512",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/recetas/necesita/523",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recetas",
+						"necesita",
+						"523"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/elabora",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/elabora",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"elabora"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/elabora/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/elabora/361",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"elabora",
+						"361"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/elabora/361",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/elabora/361",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"elabora",
+						"361"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/elabora/510",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/elabora/361",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"elabora",
+						"361"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/costo-caducados/todos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/costo-caducados/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"costo-caducados",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/caduca-pronto",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/caduca-pronto/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"caduca-pronto",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/costo-almacen/materias",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{JWT}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/costo-almacen/materias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"costo-almacen",
+						"materias"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
